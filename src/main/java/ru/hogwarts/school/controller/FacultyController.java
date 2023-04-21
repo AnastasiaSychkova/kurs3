@@ -39,6 +39,11 @@ public class FacultyController {
         return ResponseEntity.ok(Collections.emptyList());
     }
 
+    @GetMapping
+    public ResponseEntity<Collection<Faculty>> findFacultyByNameOrColor(@RequestParam String name, @RequestParam String colour) {
+        return ResponseEntity.ok(facultyService.getFacultyByNameOrColor(name, colour));
+    }
+
     @PutMapping
     public ResponseEntity<Faculty> updateFaculty(@RequestBody Faculty faculty) {
         Faculty faculty1 = facultyService.updateFaculty(faculty);
