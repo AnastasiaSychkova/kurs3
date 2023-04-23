@@ -1,9 +1,7 @@
 package ru.hogwarts.school.model;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +11,9 @@ public class Faculty {
     private Long id;
     private String name;
     private String color;
+    @OneToMany
+    @JoinColumn(columnDefinition = "faculty")
+    private Collection<Student> students;
 
     public Faculty() {
     }

@@ -39,7 +39,7 @@ public class FacultyController {
         return ResponseEntity.ok(Collections.emptyList());
     }
 
-    @GetMapping
+    @GetMapping("/findFacultyByNameOrColor")
     public ResponseEntity<Collection<Faculty>> findFacultyByNameOrColor(@RequestParam String name, @RequestParam String colour) {
         return ResponseEntity.ok(facultyService.getFacultyByNameOrColor(name, colour));
     }
